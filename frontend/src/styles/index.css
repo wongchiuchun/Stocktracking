@@ -1,0 +1,245 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.app-header {
+  background-color: #EF856D;
+  padding: 16px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.app-header nav ul li {
+  margin-left: 16px;
+}
+
+.app-header nav ul li a,
+.app-header nav ul li button {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.app-header nav ul li a:hover,
+.app-header nav ul li button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-footer {
+  background-color: #EF856D;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+h1.system-name {
+  font-size: 40px;
+}
+
+li::marker{
+  visibility: hidden;
+  color: #fff;
+}
+h1, h2 {
+  color: #EF856D;
+}
+
+button {
+  background-color: #EF856D;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #EF856D;
+  color: #010101;
+}
+
+.login-page, .summary-page, .product-management-page, .user-management-page, .action-page {
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, select, button {
+  margin: 10px;
+  padding: 5px;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.summary-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding-bottom: 80px; /* Adjust the value as needed */
+}
+
+.summary-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-page button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.summary-page button:hover {
+  background-color: #0056b3;
+}
+
+.summary-page h2 {
+  margin-top: 30px;
+}
+
+.summary-page ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.summary-page li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.summary-page li:last-child {
+  border-bottom: none;
+}
+
+.action-page {
+  padding-bottom: 80px; /* Adjust the value as needed */
+}
+
+/* Add these styles to your CSS file */
+.action-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-select {
+  width: 200px;
+  height: 100px;
+
+}
+
+.form-select {
+  width: 150px;
+}
+
+.quantity-input {
+  width: 100px;
+}
+
+.action-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.status-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
