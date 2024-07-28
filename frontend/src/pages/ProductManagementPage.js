@@ -31,31 +31,63 @@ function ProductManagementPage() {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     if (!newProductName.trim()) return;
+    setIsLoading(true);
     try {
-      const { error } = await supabase
+      // First, insert the new product
+      const { data: newProduct, error: productError } = await supabase
         .from('products')
-        .insert([{ name: newProductName.trim() }]);
-      if (error) throw error;
-      fetchProducts();
+        .insert([{ name: newProductName.trim() }])
+        .select()
+        .single();
+
+      if (productError) throw productError;
+
+      // Then, create an initial stock level for the new product
+      const { error: stockError } = await supabase
+        .from('stock_levels')
+        .insert([
+          { 
+            product_id: newProduct.id, 
+            bar_count: 0, 
+            count_100g: 0, 
+            count_50g: 0 
+          }
+        ]);
+
+      if (stockError) throw stockError;
+
+      // Refresh the product list
+      await fetchProducts();
       setNewProductName('');
     } catch (error) {
       console.error('Error adding product:', error);
       setError('Failed to add product. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleDeleteProduct = async (productId) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
+    setIsLoading(true);
     try {
-      const { error } = await supabase
+      // Delete the product
+      const { error: productError } = await supabase
         .from('products')
         .delete()
         .eq('id', productId);
-      if (error) throw error;
-      fetchProducts();
+
+      if (productError) throw productError;
+
+      // The stock level should be automatically deleted due to foreign key constraint
+      // but if it's not set up that way, you might need to delete it manually here
+
+      await fetchProducts();
     } catch (error) {
       console.error('Error deleting product:', error);
       setError('Failed to delete product. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
