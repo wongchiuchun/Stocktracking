@@ -32,7 +32,7 @@ function ProductManagementPage() {
     e.preventDefault();
     if (!newProductName.trim()) return;
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('products')
         .insert([{ name: newProductName.trim() }]);
       if (error) throw error;
