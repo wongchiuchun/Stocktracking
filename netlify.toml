@@ -1,13 +1,9 @@
-[
-build
-]
+[build]
   base = "frontend"
   publish = "build"
   command = "CI=false npm run build"
 
-[[
-redirects
-]]
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
