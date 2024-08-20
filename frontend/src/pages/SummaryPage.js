@@ -30,7 +30,7 @@ function SummaryPage() {
       const formattedStockData = products.map(product => {
         const stockLevel = stockLevels.find(sl => sl.product_id === product.id) || {};
         return {
-          name: product.name,
+          name: product?.name || 'N/A',
           bar: stockLevel.bar_count || 0,
           '100g': stockLevel.count_100g || 0,
           '50g': stockLevel.count_50g || 0
@@ -99,7 +99,7 @@ function SummaryPage() {
         <ul>
           {logData.map(log => (
             <li key={log.id}>
-              {`${log.action_type} - ${log.products.name} (${log.quantity} ${log.form}) at ${new Date(log.timestamp).toLocaleString()}`}
+              {`${log.action_type} - ${log.products?.name || 'N/A'} (${log.quantity} ${log.form}) at ${new Date(log.timestamp).toLocaleString()}`}
             </li>
           ))}
         </ul>
